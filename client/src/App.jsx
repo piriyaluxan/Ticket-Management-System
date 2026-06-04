@@ -7,6 +7,8 @@ import {
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
+import TicketListPage from "./pages/tickets/TicketListPage";
+import CreateTicketPage from "./pages/tickets/CreateTicketPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -21,6 +23,22 @@ function App() {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tickets"
+          element={
+            <ProtectedRoute>
+              <TicketListPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tickets/create"
+          element={
+            <ProtectedRoute allowedRoles={["user", "admin"]}>
+              <CreateTicketPage />
             </ProtectedRoute>
           }
         />
