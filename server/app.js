@@ -17,11 +17,11 @@ app.use(
 
 app.use(express.json());
 
-// Health check
 app.get("/", (req, res) => {
   res.json({ message: "API is running" });
 });
 
-// Routes will be added here
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
 
 module.exports = app;
