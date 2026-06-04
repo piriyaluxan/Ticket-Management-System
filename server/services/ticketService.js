@@ -31,7 +31,7 @@ const getAllTickets = async (userRole, userId, query) => {
   const tickets = await Ticket.find(filter)
     .populate("createdBy", "name email")
     .populate("assignedTo", "name email")
-    .sort({ createdAt: -1 })
+    .sort(query.sort || "-createdAt")
     .skip((page - 1) * limit)
     .limit(Number(limit));
 
