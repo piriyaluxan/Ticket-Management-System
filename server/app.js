@@ -26,5 +26,7 @@ app.use("/api/auth", authRoutes);
 
 const ticketRoutes = require("./routes/ticketRoutes");
 app.use("/api/tickets", ticketRoutes);
+const userRoutes = require("./routes/userRoutes");
+app.use("/api/users", userRoutes);
 
 module.exports = app;
