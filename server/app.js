@@ -8,9 +8,20 @@ connectDB();
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
@@ -18,17 +29,27 @@ app.use(
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ message: "API is running" });
+  res.json({ message: "Ticket Management API is running" });
 });
 
 const authRoutes = require("./routes/authRoutes");
-app.use("/api/auth", authRoutes);
-
 const ticketRoutes = require("./routes/ticketRoutes");
-app.use("/api/tickets", ticketRoutes);
 const userRoutes = require("./routes/userRoutes");
-app.use("/api/users", userRoutes);
 const dashboardRoutes = require("./routes/dashboardRoutes");
+
+app.use("/api/auth", authRoutes);
+app.use("/api/tickets", ticketRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+    errors: null,
+  });
+});
 
 module.exports = app;

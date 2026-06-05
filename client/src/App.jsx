@@ -13,6 +13,7 @@ import EditTicketPage from "./pages/tickets/EditTicketPage";
 import TicketDetailsPage from "./pages/tickets/TicketDetailsPage";
 import UserManagementPage from "./pages/users/UserManagementPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
