@@ -1,6 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "../app/authSlice";
+
+const linkClass = ({ isActive }) =>
+  `block py-2 px-3 rounded text-sm transition-colors ${
+    isActive
+      ? "bg-blue-600 text-white"
+      : "text-gray-300 hover:bg-gray-700 hover:text-white"
+  }`;
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -14,63 +21,50 @@ export default function Sidebar() {
 
   return (
     <div className="w-64 min-h-screen bg-gray-800 text-white flex flex-col">
-      <div className="p-4 text-xl font-bold border-b border-gray-700">
-        Ticket System
+      <div className="p-4 border-b border-gray-700">
+        <p className="text-lg font-bold">🎫 Ticket System</p>
+        <p className="text-xs text-gray-400 mt-1">QTechy</p>
       </div>
-      <nav className="flex-1 p-4 space-y-2">
-        <Link
-          to="/dashboard"
-          className="block py-2 px-3 rounded hover:bg-gray-700"
-        >
+      <nav className="flex-1 p-4 space-y-1">
+        <NavLink to="/dashboard" className={linkClass}>
           Dashboard
-        </Link>
+        </NavLink>
 
         {user?.role === "admin" && (
           <>
-            <Link
-              to="/tickets"
-              className="block py-2 px-3 rounded hover:bg-gray-700"
-            >
+            <NavLink to="/tickets" className={linkClass}>
               Ticket Management
-            </Link>
-            <Link
-              to="/users"
-              className="block py-2 px-3 rounded hover:bg-gray-700"
-            >
+            </NavLink>
+            <NavLink to="/users" className={linkClass}>
               User Management
-            </Link>
+            </NavLink>
           </>
         )}
 
         {user?.role === "agent" && (
-          <Link
-            to="/tickets"
-            className="block py-2 px-3 rounded hover:bg-gray-700"
-          >
+          <NavLink to="/tickets" className={linkClass}>
             Assigned Tickets
-          </Link>
+          </NavLink>
         )}
 
         {user?.role === "user" && (
           <>
-            <Link
-              to="/tickets"
-              className="block py-2 px-3 rounded hover:bg-gray-700"
-            >
+            <NavLink to="/tickets" className={linkClass}>
               My Tickets
-            </Link>
-            <Link
-              to="/tickets/create"
-              className="block py-2 px-3 rounded hover:bg-gray-700"
-            >
+            </NavLink>
+            <NavLink to="/tickets/create" className={linkClass}>
               Create Ticket
-            </Link>
+            </NavLink>
           </>
         )}
       </nav>
       <div className="p-4 border-t border-gray-700">
-        <p className="text-sm text-gray-400 mb-2">
-          {user?.name} ({user?.role})
+        <p className="text-xs text-gray-400 mb-1">{user?.email}</p>
+        <p className="text-sm font-medium mb-3">
+          {user?.name}{" "}
+          <span className="text-xs text-gray-400 capitalize">
+            ({user?.role})
+          </span>
         </p>
         <button
           onClick={handleLogout}
