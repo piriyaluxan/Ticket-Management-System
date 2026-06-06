@@ -45,11 +45,11 @@ This application is designed to:
 
 ## Test Credentials
 
-| Role  | Email            | Password  |
-| ----- | ---------------- | --------- |
-| Admin | admin@qtechy.com | Admin@123 |
-| Agent | agent@qtechy.com | Agent@123 |
-| User  | user@qtechy.com  | User@123  |
+| Role  | Email             | Password  |
+| ----- | ----------------- | --------- |
+| Admin | admin@example.com | Admin@123 |
+| Agent | agent@example.com | Agent@123 |
+| User  | user@example.com  | User@123  |
 
 ## Tech Stack
 
@@ -57,7 +57,7 @@ This application is designed to:
 - **Backend:** Node.js, Express.js, MongoDB, Mongoose
 - **Auth:** JWT
 - **Database:** MongoDB Atlas
-- **Deployment:** Vercel (frontend), Render (backend)
+- **Deployment:** Vercel (frontend), Vercel (backend)
 
 ## Features
 
