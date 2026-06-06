@@ -2,11 +2,46 @@
 
 A full-stack role-based ticket management system built with the MERN stack.
 
+## 📋 System Overview
+
+The Ticket Management System is a comprehensive solution for organizing, tracking, and managing customer support requests, IT helpdesk tickets, and internal task assignments. This application streamlines communication between users, support agents, and administrators through an intuitive interface with real-time updates, status tracking, and assignment management.
+
+## 🎯 Purpose & Key Objectives
+
+This application is designed to:
+
+- **Centralize Support Operations:** Consolidate all customer and internal support requests in one unified platform
+- **Enhance Efficiency:** Reduce response times and improve ticket resolution with organized workflows
+- **Enable Collaboration:** Facilitate seamless communication between support agents and customers through comments and status updates
+- **Manage Resources:** Distribute workload effectively by assigning tickets to appropriate agents
+- **Track Performance:** Monitor ticket metrics, response times, and resolution statistics through comprehensive dashboards
+- **Control Access:** Implement role-based permissions ensuring users access only relevant information
+
+## 👥 Who Should Use This?
+
+- **Organizations with Support Teams:** Companies needing to manage customer support requests
+- **IT Departments:** Internal teams handling IT helpdesk and troubleshooting requests
+- **Service Providers:** Businesses delivering services and managing client requests
+- **Project Teams:** Teams coordinating internal tasks and issue tracking
+
+## ⭐ Key Features & Benefits
+
+| Feature                       | Benefit                                                          |
+| ----------------------------- | ---------------------------------------------------------------- |
+| **Role-Based Access Control** | Different views and permissions for Admin, Agent, and User roles |
+| **Real-Time Dashboard**       | Quick insights into ticket statistics and team performance       |
+| **Ticket Assignment**         | Efficiently distribute workload among support agents             |
+| **Status Tracking**           | Monitor ticket progress from creation to resolution              |
+| **Comment System**            | Enable direct communication between agents and users             |
+| **Advanced Filtering**        | Quickly find tickets by status, priority, category, or assignee  |
+| **User Management**           | Admin controls to activate/deactivate users and manage accounts  |
+| **Responsive Design**         | Seamless experience across desktop, tablet, and mobile devices   |
+
 ## Live Links
 
-- **Frontend:** https://your-app.vercel.app
-- **Backend:** https://your-api.onrender.com
-- **GitHub:** https://github.com/yourusername/qtechy-ticket-system
+- **Frontend:** https://ticket-management-system-vert.vercel.app/
+- **Backend:** https://ticket-api-kappa.vercel.app
+- **GitHub:** https://github.com/piriyaluxan/Ticket-Management-System.git
 
 ## Test Credentials
 
